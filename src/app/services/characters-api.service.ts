@@ -23,9 +23,9 @@ export class CharactersApiService {
     .pipe(map((data: any) => data.data.results))
   }*/
 
-  getAllCharacters(): Observable<CharacterList>{
+  getAllCharacters(): Observable<Character[]>{
     console.log(this.URL_API);
-    return this.http.get<any>(this.URL_API)
+    return this.http.get<Character[]>(this.URL_API)
     .pipe(map((data: Data) => data.data.results))
   } 
 }

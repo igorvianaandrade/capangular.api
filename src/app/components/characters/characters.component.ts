@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CharacterList } from 'src/app/models/character/character-list.model';
+import { Character } from 'src/app/models/character/character.model';
 import { CharactersApiService } from 'src/app/services/characters-api.service';
 
 @Component({
@@ -10,15 +11,11 @@ import { CharactersApiService } from 'src/app/services/characters-api.service';
 })
 export class CharactersComponent implements OnInit {
   
-  characterList: CharacterList = {};
+  characterList: Character[] = [];
 
   constructor(private characterService: CharactersApiService) { }
-  /* chamando da própria api*/
+  // chamando da própria api
  // characterList: Observable<any>;
-  
-  // ngOnInit(): void {
-  //   this.getCharacters();
-  // }
 
   // getCharacters() {
   //   this.characterList = this.characterService.getAllCharacters();
@@ -26,11 +23,11 @@ export class CharactersComponent implements OnInit {
   // }
 
   /*chamando com modelagem */
-
   ngOnInit(): void {
     this.characterService.getAllCharacters()
     .subscribe((response:any) => {
       this.characterList = response;
+      console.log("OI: "+this.characterList);
     });
   }
 }
