@@ -30,12 +30,7 @@ export class CharactersComponent implements OnInit {
   ngOnInit(): void {
     this.characterService.getAllCharacters()
     .subscribe((response:any) => {
-      
       this.characterList = response;
-
-     // this.characterList.data.results?.map(result => {
-
-     // });
     });
   }
 }
